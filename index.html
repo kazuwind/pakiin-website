@@ -1,0 +1,823 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PAKÍIN! トップ</title>
+<meta name="description" content="完了したタスクのカードをタップして、ひび → パキーン！と割って消すiPhone向けToDoアプリ「PAKÍIN!（パキーン）」の公式サイト。">
+<meta name="theme-color" content="#FF7424">
+<link rel="icon" type="image/png" href="assets/icon.png">
+<link rel="apple-touch-icon" href="assets/icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="PAKÍIN! トップ">
+<meta property="og:description" content="完了したタスクのカードをタップして、ひび → パキーン！と割って消すiPhone向けToDoアプリ「PAKÍIN!（パキーン）」の公式サイト。">
+<!-- og:image 差し込み口：1200×630 の画像を assets/og-image.png に置き、content を公開URLの絶対パスに書き換える
+     （例：https://<ユーザー名>.github.io/<リポジトリ名>/assets/og-image.png）。SNS は相対パスを読めないため。 -->
+<meta property="og:image" content="assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PAKÍIN!（パキーン）">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800;900&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+picture{display:contents}
+body{margin:0;background:#FFF6EE;color:#3A1A12;font-family:'Noto Sans JP',system-ui,sans-serif;line-height:1.85;-webkit-text-size-adjust:100%;overflow-x:hidden}
+h1,h2,h3{font-family:'M PLUS Rounded 1c','Noto Sans JP',sans-serif;line-height:1.3;margin:0;text-wrap:balance;word-break:auto-phrase}
+p{margin:0}
+a{color:#C7245E}a:hover{color:#8E1640}
+img{max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding-left:24px;padding-right:24px}
+
+/* 見出し */
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'M PLUS Rounded 1c',sans-serif;font-weight:900;font-size:15px;letter-spacing:.14em;color:#3A1A12;margin:0 0 14px}
+.eyebrow::before{content:"";width:12px;height:12px;border-radius:50%;background:#FF4D8A}
+.onc .eyebrow::before{background:#FFD23F}
+.sec-h{font-size:clamp(32px,5.6vw,54px);font-weight:900;letter-spacing:.01em}
+.onc .sec-h{color:#fff;text-shadow:3px 4px 0 #3A1A12}
+.hl{background:linear-gradient(transparent 58%,#FFD23F 58%,#FFD23F 92%,transparent 92%);padding:0 .08em}
+
+/* 色面と波 */
+.f-orange,.f-pink{background:linear-gradient(135deg,#FF7A24 0%,#FF6550 45%,#FF4D8A 100%)}
+.f-cream{background:#FFF6EE}
+.wave{display:block;width:100%;height:clamp(36px,6vw,72px)}
+
+/* ボタン */
+.btn-soon{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:64px;padding:0 10px 0 30px;border-radius:999px;background:#fff;color:#3A1A12;font-family:'M PLUS Rounded 1c',sans-serif;font-weight:900;font-size:18px;border:0;opacity:1;cursor:default;box-shadow:0 10px 24px rgba(120,20,30,.22)}
+.btn-soon:disabled{color:#3A1A12;opacity:1}
+.btn-soon .arw{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;background:#FF4D8A}
+
+.nav{display:flex;flex-wrap:wrap;gap:0 2px;background:#fff;border-radius:999px;padding:4px 8px;box-shadow:0 8px 20px rgba(120,20,30,.18)}
+.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;color:#3A1A12;text-decoration:none;font-weight:700;font-size:15px;border-radius:999px}
+.nav a:hover{background:#FFE4D2;color:#3A1A12}
+
+/* ガラスの破片キャラ */
+.shard{position:absolute;pointer-events:none;filter:drop-shadow(0 8px 10px rgba(120,20,30,.25))}
+.shard i{position:absolute;inset:0;background:rgba(255,255,255,.96)}
+.shard b{position:absolute;inset:3px;background:linear-gradient(118deg,rgba(255,255,255,0) 30%,rgba(255,255,255,.6) 38%,rgba(255,255,255,0) 47%),linear-gradient(135deg,rgba(255,150,40,.9),rgba(255,77,138,.86))}
+.shard.y b{background:linear-gradient(118deg,rgba(255,255,255,0) 30%,rgba(255,255,255,.7) 38%,rgba(255,255,255,0) 47%),linear-gradient(135deg,rgba(255,226,90,.95),rgba(255,180,40,.92))}
+.shard.w b{background:linear-gradient(118deg,rgba(255,255,255,0) 30%,rgba(255,255,255,.8) 38%,rgba(255,255,255,0) 47%),rgba(255,255,255,.45)}
+.shard.k b{background:linear-gradient(118deg,rgba(255,255,255,0) 30%,rgba(255,255,255,.6) 38%,rgba(255,255,255,0) 47%),linear-gradient(135deg,rgba(240,90,130,.9),rgba(190,32,72,.86))}
+.shard em{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);display:flex;gap:18%;width:56%;justify-content:center}
+.shard em u{display:block;width:34%;aspect-ratio:4/5;border-radius:50%;background:radial-gradient(circle at 50% 62%,#3A1A12 0 34%,#fff 36%);box-shadow:0 0 0 2px rgba(58,26,18,.85)}
+.p1 i,.p1 b{clip-path:polygon(10% 0,100% 22%,70% 100%,0 64%)}
+.p2 i,.p2 b{clip-path:polygon(50% 0,100% 80%,20% 100%,0 30%)}
+.p3 i,.p3 b{clip-path:polygon(0 10%,85% 0,100% 55%,35% 100%)}
+.p4 i,.p4 b{clip-path:polygon(30% 0,100% 40%,60% 100%,0 75%)}
+
+.burst{clip-path:polygon(100% 50%,86.7% 59.8%,93.3% 75%,76.9% 76.9%,75% 93.3%,59.8% 86.7%,50% 100%,40.2% 86.7%,25% 93.3%,23.1% 76.9%,6.7% 75%,13.3% 59.8%,0% 50%,13.3% 40.2%,6.7% 25%,23.1% 23.1%,25% 6.7%,40.2% 13.3%,50% 0%,59.8% 13.3%,75% 6.7%,76.9% 23.1%,93.3% 25%,86.7% 40.2%)}
+.marquee{overflow:hidden;background:#FFD23F;margin:0}
+.mq-track{display:flex;width:max-content}
+.mq-track span{display:inline-flex;align-items:center;gap:28px;padding:16px 14px;font-family:'M PLUS Rounded 1c',sans-serif;font-weight:900;font-size:clamp(22px,3.2vw,30px);color:#3A1A12;white-space:nowrap}
+.mq-track span i{display:inline-block;width:20px;height:20px;background:#FF4D8A;font-style:normal}
+
+/* アプリと同じタスクカード */
+.tcard{position:relative;display:flex;align-items:center;width:100%;height:96px;padding:0 28px;border-radius:18px;background:linear-gradient(100deg,#F0628A,#D6345F 55%,#B8203F);border:2px solid rgba(255,255,255,.9);box-shadow:inset 0 2px 0 rgba(255,255,255,.65),inset 0 -8px 16px rgba(90,0,20,.18),0 14px 28px rgba(180,30,60,.3);overflow:hidden;color:#fff;font-family:'M PLUS Rounded 1c',sans-serif;font-weight:900;font-size:24px;text-shadow:0 1px 3px rgba(80,0,20,.4);text-align:left}
+.tcard::before{content:"";position:absolute;left:6px;right:6px;top:4px;height:38%;border-radius:14px 14px 40% 40%/14px 14px 12px 12px;background:linear-gradient(rgba(255,255,255,.42),rgba(255,255,255,0));pointer-events:none}
+.tcard .cracks{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.tcard .badge{position:absolute;top:8px;right:10px;display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#4A4442;color:#fff;font-family:'Noto Sans JP',sans-serif;font-size:15px;font-weight:700;text-shadow:none;border:1.5px solid rgba(255,255,255,.8)}
+.tcard.mini{height:64px;padding:0 12px;font-size:clamp(11px,3.1vw,15px);white-space:nowrap;border-radius:14px}
+@media (max-width:720px){.deco{display:none}}
+.tcard.mini .badge{width:22px;height:22px;font-size:11px;top:5px;right:6px}
+.tap-btn{display:block;width:100%;padding:0;margin:0;border:0;background:none;cursor:pointer;border-radius:18px;-webkit-tap-highlight-color:transparent;transition:transform .08s}
+.tap-btn:active{transform:scale(.96)}
+.tap-btn:focus-visible{outline:3px solid #3A1A12;outline-offset:6px}
+.again{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:56px;padding:0 8px 0 26px;border-radius:999px;background:#FF4D8A;color:#fff;border:0;box-shadow:0 10px 22px rgba(200,40,90,.3);font-family:'M PLUS Rounded 1c',sans-serif;font-weight:900;font-size:18px;cursor:pointer}
+.again .arw{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#fff}
+.again:active{transform:scale(.97)}
+/* ヒビ・反射面・破片（アプリの GlassCrackOverlay / ShardBurst を移植）。
+   ヒビ画像（1600×400）にはカードの輪郭が x96〜1535・y30〜356 に描かれている。アプリの OFFSET(-20,-5)px は
+   アプリのカード寸法専用の値なので、ここでは輪郭がカードの縁にぴったり重なる比率で配置する。
+   反射面（座標 0〜1000）もヒビ画像と同じ箱に置くので、両者は常に揃う */
+.tcard .crack-tex{position:absolute;left:-6.671%;top:-9.202%;width:111.19%;height:122.7%;max-width:none;pointer-events:none}
+.tap-float{position:absolute;pointer-events:none;color:#fff;font-family:'M PLUS Rounded 1c',sans-serif;font-weight:900;font-size:20px;text-shadow:0 1px 3px rgba(80,0,20,.5);transform:translate(-50%,-50%)}
+.shatter{position:absolute;inset:0;pointer-events:none}
+.shatter svg{position:absolute;overflow:visible;will-change:transform,opacity}
+
+.boom{display:flex;align-items:center;justify-content:center;width:150px;height:150px;background:#FFD23F;font-family:'M PLUS Rounded 1c',sans-serif;font-weight:900;font-size:22px;color:#3A1A12}
+
+/* 機能紹介 */
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:24px 56px;align-items:center;padding:56px 0}
+.feat-media{display:flex;justify-content:center;width:100%}
+.stage{position:relative;width:100%;max-width:500px;padding:8px;display:flex;justify-content:center}
+.num{display:inline-flex;align-items:center;justify-content:center;width:72px;height:72px;border-radius:46% 54% 52% 48%/52% 46% 54% 48%;color:#3A1A12;font-family:'M PLUS Rounded 1c',sans-serif;font-weight:900;font-size:26px;margin-bottom:12px;transform:rotate(-8deg)}
+.n-p{background:#FF7FA6}.n-y{background:#FFD23F}.n-o{background:#FF9A4D}
+.feat h3,.feat1 h3{font-size:clamp(24px,3.2vw,32px);font-weight:900;margin-bottom:14px}
+.feat p,.feat1 p{font-size:16.5px;color:#4E2E24}
+.frames{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr));gap:20px}
+.frame{display:flex;flex-direction:column;align-items:center;gap:14px;padding:12px 4px;position:relative}
+.frame-l{display:inline-flex;align-items:center;gap:8px;font-family:'M PLUS Rounded 1c',sans-serif;font-weight:900;font-size:16px}
+.frame-l span{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#FF4D8A;color:#fff;font-size:14px}
+.shot{position:relative;margin:0;width:100%;border-radius:26px;overflow:hidden;background:#fff;box-shadow:0 20px 44px rgba(220,70,60,.25)}
+.shot img{display:block;width:100%}
+.shot.crop img{aspect-ratio:5/4;object-fit:cover}
+.shot.tall{width:min(300px,78vw)}
+.shot.cut{max-width:480px;border-radius:22px;box-shadow:0 12px 28px rgba(150,60,40,.16)}
+.shot.cut img{height:auto}
+.shot-cap{margin-top:12px;font-size:12.5px;color:#6A4A3E;text-align:center}
+.shot-cap a{color:#C7245E;font-weight:700}
+.ph{position:relative;width:100%;max-width:300px;aspect-ratio:4/5;border:3px dashed #FF9A6B;border-radius:28px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:24px;color:#4E2E24;font-size:14px;line-height:1.7}
+.ph b{font-family:'M PLUS Rounded 1c',sans-serif;font-size:14px;letter-spacing:.08em;color:#3A1A12}
+
+/* カード類 */
+.arch{position:relative;background:#fff;border-radius:200px 200px 36px 36px;box-shadow:0 18px 40px rgba(120,20,30,.22)}
+.card{background:#fff;border-radius:40px;box-shadow:0 18px 40px rgba(220,70,60,.16)}
+.tag{display:inline-flex;align-items:center;background:#FFD23F;border-radius:999px;padding:2px 16px;font-family:'M PLUS Rounded 1c',sans-serif;font-weight:900;font-size:14px}
+.icon-blob{display:inline-flex;align-items:center;justify-content:center;width:76px;height:76px;border-radius:46% 54% 52% 48%/52% 46% 54% 48%}
+.faq{display:flex;flex-direction:column;gap:14px}
+.faq details{background:#fff;border-radius:28px;box-shadow:0 10px 24px rgba(120,20,40,.16)}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px;padding:14px 16px 14px 26px;font-weight:700;font-size:16.5px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#FF4D8A;color:#fff;font-size:26px;line-height:1;font-weight:700;flex:none;transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 26px 22px;color:#4E2E24;font-size:15.5px}
+.poster{display:none}
+@media (min-width:960px){.hero-grid{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)!important}.hero-h1{font-size:calc((min(100vw,1120px) - 96px) * .06)!important}.pk{font-size:1.35em}}
+
+@media (prefers-reduced-motion:reduce){
+.hero-video{display:none}.poster{display:block}
+}
+@media (prefers-reduced-motion:no-preference){
+.mq-track{animation:mq 26s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+.bob{animation:bob 3.4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-14px)}}
+.blink em u{animation:blink 4s infinite}
+@keyframes blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+.wiggle{animation:wiggle 2.4s ease-in-out infinite}
+@keyframes wiggle{0%,100%{transform:rotate(12deg) scale(1)}50%{transform:rotate(4deg) scale(1.08)}}
+.boom-wrap{animation:boom .45s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes boom{from{transform:scale(0) rotate(-30deg)}to{transform:scale(1) rotate(-8deg)}}
+.again-wrap{animation:appear .35s .5s ease-out both}
+@keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@supports (animation-timeline:view()){
+.reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 35%}
+@keyframes rise{from{opacity:0;transform:translateY(30px) scale(.94)}to{opacity:1;transform:none}}
+}}
+@media (max-width:719px){br.pc{display:none}}
+</style>
+</head>
+<body>
+<div>
+<main>
+<!-- 1. ヒーロー（オレンジの色面＋ピンクの角） -->
+<section style="position:relative;overflow:hidden;background:radial-gradient(circle at 100% 0%,#FF4D8A 0,rgba(255,77,138,.85) 18%,rgba(255,77,138,0) 52%),radial-gradient(circle at 0% 100%,rgba(255,200,60,.5) 0,rgba(255,200,60,0) 40%),#FF7424">
+<header class="wrap" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px 16px;padding-top:18px;padding-bottom:14px;position:relative;z-index:3">
+<a href="index.html" style="display:inline-flex;align-items:center;gap:10px;min-height:44px;text-decoration:none;color:#fff">
+<picture><source srcset="assets/icon.webp" type="image/webp"><img src="assets/icon.png" alt style="width:44px;height:44px;border-radius:12px;display:block;box-shadow:0 6px 14px rgba(120,20,30,.3)"></picture>
+<span style="font-family:'M PLUS Rounded 1c',sans-serif;font-weight:900;font-size:24px;text-shadow:2px 3px 0 #3A1A12">PAKÍIN!</span>
+</a>
+<nav class="nav" aria-label="メインメニュー">
+<a href="#features">機能</a>
+<a href="#price">料金</a>
+<a href="support.html">サポート</a>
+</nav>
+</header>
+
+<div class="wrap hero-grid" style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:48px;align-items:center;padding-top:24px;padding-bottom:48px">
+<div style="position:relative;z-index:2">
+<h1 class="hero-h1" style="font-size:clamp(40px,5.2vw,68px);font-weight:900;letter-spacing:-.01em;color:#fff;text-shadow:4px 5px 0 #3A1A12"><span style="display:block;white-space:nowrap"><span class="pk" style="color:#FFD23F;display:inline-block;transform:rotate(-4deg)">パキーン！</span>で、</span><span style="display:block;white-space:nowrap">今日をすっきり。</span></h1>
+<p style="margin-top:28px;font-size:18px;max-width:28em;color:#2A0E08;font-weight:700;line-height:1.9">終わったタスクをタップすると、ガラスのカードにひびが入り、最後のひと押しでパキーンと弾けて消えます。<br class="pc">音と振動つきで、片付けるたびに小さな達成感を。</p>
+<div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:12px">
+<button type="button" class="btn-soon" disabled>App Storeで近日公開<span class="arw"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></button>
+</div>
+</div>
+
+<div style="display:flex;justify-content:center;position:relative;padding:40px 0 24px">
+<span class="shard y p1 bob blink" aria-hidden="true" style="left:max(0px,calc(50% - 230px));top:4%;width:104px;height:92px;rotate:-14deg"><i><b></b></i><em><u></u><u></u></em></span>
+<span class="shard w p3 bob blink" aria-hidden="true" style="right:max(0px,calc(50% - 235px));top:42%;width:86px;height:80px;rotate:18deg;animation-delay:-1.3s"><i><b></b></i><em><u></u><u></u></em></span>
+<span class="shard p2 bob" aria-hidden="true" style="left:max(4px,calc(50% - 200px));bottom:10%;width:58px;height:68px;rotate:12deg;animation-delay:-2.1s"><i><b></b></i></span>
+<span class="shard y p4 bob" aria-hidden="true" style="right:max(10px,calc(50% - 185px));bottom:2%;width:44px;height:42px;rotate:-30deg;animation-delay:-.7s"><i><b></b></i></span>
+
+<div style="position:relative;width:min(280px,70vw);padding:9px;border-radius:48px;background:#3A1A12;transform:rotate(5deg);box-shadow:0 30px 60px rgba(90,10,20,.35)">
+<div style="position:relative;border-radius:39px;overflow:hidden;aspect-ratio:924/2000;background:#EBE5DD">
+<picture><source srcset="assets/hero-poster.webp" type="image/webp"><img class="poster" src="assets/hero-poster.jpg" alt="PAKÍIN!のやることタブ。ガラス質感のタスクカードが並び、下の3枚にはひびが入っている" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></picture>
+<video class="hero-video" src="assets/hero.mp4" autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg" role="img" aria-label="タスクのカードをタップするとひびが入り、パキーンと弾けて消える様子" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></video>
+</div>
+</div>
+<div class="wiggle" aria-hidden="true" style="position:absolute;right:max(0px,calc(50% - 240px));top:-4px;filter:drop-shadow(0 8px 10px rgba(90,10,20,.3));transform:rotate(12deg)">
+<div class="burst" style="width:150px;height:150px;background:#FFD23F;display:flex;align-items:center;justify-content:center;font-family:'M PLUS Rounded 1c',sans-serif;font-weight:900;font-size:22px;color:#3A1A12">パキーン！</div>
+</div>
+</div>
+</div>
+<svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 44 C 120 4 240 4 360 44 S 600 84 720 44 960 4 1080 44 1320 84 1440 44 V80 H0 Z" fill="#FFF6EE"></path></svg>
+</section>
+
+<!-- 2. ためしに割ってみる -->
+<section id="try" class="f-cream" style="position:relative;overflow:hidden;padding:56px 0 104px">
+<span class="deco shard k p3 bob blink" aria-hidden="true" style="left:6%;top:18%;width:80px;height:74px;rotate:-10deg"><i><b></b></i><em><u></u><u></u></em></span>
+<span class="deco shard y p2 bob blink" aria-hidden="true" style="right:7%;bottom:16%;width:70px;height:80px;rotate:14deg;animation-delay:-1.7s"><i><b></b></i><em><u></u><u></u></em></span>
+<div class="wrap" style="position:relative;max-width:760px">
+<div style="text-align:center;margin-bottom:44px">
+<p class="eyebrow">TRY IT</p>
+<h2 class="sec-h">ためしに、<span class="hl">割ってみて。</span></h2>
+<p style="margin-top:14px;color:#4E2E24;font-weight:500">カードを3回タップすると、パキーン！</p>
+</div>
+<div style="position:relative;padding:8px 0 0">
+<div style="position:relative;max-width:520px;margin:0 auto;min-height:96px">
+
+<div data-if="intact">
+<button type="button" class="tap-btn" data-action="tap" aria-label="タスクカード「企画書を提出する」。タップしてひびを入れる。あと3回で割れます">
+<span class="tcard">企画書を提出する
+<img class="crack-tex" data-if="crack1" src="assets/crack_tap3.webp" alt="" hidden>
+<svg class="crack-tex" data-if="crack2" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true" data-refl></svg>
+<span class="badge" data-bind="left">3</span>
+</span>
+</button>
+</div>
+
+<div data-if="broken" hidden>
+<div style="position:relative;height:96px">
+<div class="shatter" aria-hidden="true" data-shatter></div>
+<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+<div class="boom-wrap" aria-hidden="true" style="filter:drop-shadow(0 8px 10px rgba(90,10,20,.3));transform:rotate(-8deg)">
+<div class="burst boom">パキーン！</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div style="margin-top:36px;min-height:60px;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center">
+<p aria-live="polite" style="font-weight:700" data-bind="status">カードをタップしてみてください</p>
+<div data-if="broken" hidden>
+<div class="again-wrap"><button type="button" class="again" data-action="reset">もう一回<span class="arw"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF4D8A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.3-5.7M4 4v5h5"></path></svg></span></button></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 流れる帯 -->
+<div class="marquee" aria-hidden="true">
+<div class="mq-track">
+<span>タスクは、割って終わらせる。<i class="burst"></i>PAKÍIN!<i class="burst"></i>終わらせる瞬間が、気持ちいい。<i class="burst"></i>PAKÍIN!<i class="burst"></i></span>
+<span>タスクは、割って終わらせる。<i class="burst"></i>PAKÍIN!<i class="burst"></i>終わらせる瞬間が、気持ちいい。<i class="burst"></i>PAKÍIN!<i class="burst"></i></span>
+</div>
+</div>
+
+<!-- 3. コンセプト（ピンクの色面） -->
+<section class="f-pink onc" style="position:relative;overflow:hidden;padding:96px 0 0">
+<span class="deco shard y p1 bob blink" aria-hidden="true" style="left:5%;top:12%;width:92px;height:82px;rotate:-14deg"><i><b></b></i><em><u></u><u></u></em></span>
+<span class="deco shard w p4 bob" aria-hidden="true" style="right:6%;top:30%;width:64px;height:58px;rotate:22deg;animation-delay:-1.8s"><i><b></b></i></span>
+<div class="wrap reveal" style="position:relative;max-width:860px;text-align:center">
+<p class="eyebrow">CONCEPT</p>
+<h2 class="sec-h">チェックを入れるだけじゃ、<br>物足りない。</h2>
+<div style="margin:32px auto 0;max-width:720px;text-align:left">
+<p style="font-size:18px;color:#2A0E08;font-weight:700;line-height:1.95">ToDoリストのチェックは、いつも一瞬で終わってしまいます。<br class="pc">PAKÍIN!は、その一瞬を「割る」体験に変えました。<br class="pc">大きなタスクほど、ひびの数も多く、割れたときの気持ちよさも大きくなります。</p>
+</div>
+</div>
+<svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true" style="margin-top:96px"><path d="M0 44 C 120 4 240 4 360 44 S 600 84 720 44 960 4 1080 44 1320 84 1440 44 V80 H0 Z" fill="#FFF6EE"></path></svg>
+</section>
+
+<!-- 4. 機能紹介 -->
+<section id="features" class="f-cream" style="padding:72px 0 88px">
+<div class="wrap">
+<div class="reveal" style="text-align:center;margin-bottom:64px">
+<p class="eyebrow">FEATURES</p>
+<h2 class="sec-h">パキーン！を支える、<span class="hl">9つのこと。</span></h2>
+</div>
+
+<!-- ① 4コマ -->
+<article class="feat1 reveal" style="margin-bottom:40px">
+<div class="frames" role="img" aria-label="タスクカードが割れるまでの4コマ。1 ひびなし、2 ひびが入る、3 ひびが広がる、4 パキーンと弾けて破片が飛び散る">
+<div class="frame" style="transform:rotate(-1.5deg)">
+<span class="tcard mini">企画書を提出する<span class="badge">3</span></span>
+<span class="frame-l"><span>1</span>ひびなし</span>
+</div>
+<div class="frame" style="transform:rotate(1deg)">
+<span class="tcard mini">企画書を提出する
+<svg class="cracks" viewBox="0 0 520 96" preserveAspectRatio="none" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2.4" stroke-linecap="round"><path d="M380 44 L338 10 M380 44 L424 4 M380 44 L458 62 M380 44 L352 92 M380 44 L300 54"></path></svg>
+<span class="badge">2</span></span>
+<span class="frame-l"><span>2</span>ひび</span>
+</div>
+<div class="frame" style="transform:rotate(-1deg)">
+<span class="tcard mini">企画書を提出する
+<svg class="cracks" viewBox="0 0 520 96" preserveAspectRatio="none" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2.4" stroke-linecap="round"><path d="M380 44 L338 10 M380 44 L424 4 M380 44 L458 62 M380 44 L352 92 M380 44 L300 54 M338 10 L296 0 M458 62 L520 74 M300 54 L222 30 M222 30 L186 0 M222 30 L160 84 M424 4 L470 22 L520 12 M300 54 L262 96 M222 30 L120 40 M120 40 L80 22"></path></svg>
+<span class="badge">1</span></span>
+<span class="frame-l"><span>3</span>ひび拡大</span>
+</div>
+<div class="frame" style="transform:rotate(1.5deg)">
+<div style="position:relative;width:100%;height:64px">
+<span class="shard k p1" style="left:4%;top:-6px;width:40px;height:34px;rotate:-24deg"><i><b></b></i></span>
+<span class="shard k p3" style="left:28%;top:26px;width:30px;height:28px;rotate:30deg"><i><b></b></i></span>
+<span class="shard k p2" style="right:26%;top:-10px;width:30px;height:36px;rotate:-10deg"><i><b></b></i></span>
+<span class="shard k p4" style="right:2%;top:24px;width:38px;height:34px;rotate:40deg"><i><b></b></i></span>
+<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-family:'M PLUS Rounded 1c',sans-serif;font-weight:900;font-size:20px;background:#FFD23F;border-radius:999px;padding:0 16px;transform:rotate(-6deg)">パキーン！</span></div>
+</div>
+<span class="frame-l"><span>4</span>パキーン！</span>
+</div>
+</div>
+<div style="max-width:720px;margin:44px auto 0;text-align:center">
+<span class="num n-p">01</span>
+<h3>タップで、ひび。最後のひと押しで、破裂。</h3>
+<p style="text-align:left">タスクのカードをタップするたびにひびが広がり、最後のタップでガラスが弾け飛びます。<br class="pc">ひびの入り方は、タップした場所から広がります。</p>
+</div>
+</article>
+
+<div style="display:flex;flex-direction:column">
+
+<article class="feat reveal">
+<div class="feat-media"><div class="stage">
+<figure class="shot cut" style="transform:rotate(1.5deg)"><picture><source srcset="assets/02_crack_count.webp" type="image/webp"><img src="assets/02_crack_count.png" width="1125" height="960" alt="ガラスのタスクカードが4枚並ぶ画面。ひびの入ったカードの右上に、割れるまでの残り回数（2、3、6）が表示されている"></picture></figure>
+</div></div>
+<div>
+<span class="num n-y">02</span>
+<h3>ひび割れ回数で、タスクの重さを表す</h3>
+<p>タスクごとに、割れるまでのタップ回数（1〜7回）を決められます。ちょっとした用事は1回で、大仕事は7回で。<br class="pc">重いタスクほど、割れたときの爽快感が大きくなります。</p>
+</div>
+</article>
+
+<article class="feat reveal">
+<div class="feat-media"><div class="stage">
+<figure class="shot cut" style="transform:rotate(-1.5deg)"><picture><source srcset="assets/03_undo.webp" type="image/webp"><img src="assets/03_undo.png" width="1125" height="1140" alt="タスクカードが並ぶ画面の下に、残り時間を示すリング付きの「元に戻す」ボタンが表示されている"></picture></figure>
+</div></div>
+<div>
+<span class="num n-o">03</span>
+<h3>間違えても、3秒以内なら元通り</h3>
+<p>うっかり割ってしまっても、3秒以内なら「元に戻す」で、破片が集まってカードが元に戻ります。</p>
+</div>
+</article>
+
+<article class="feat reveal">
+<div class="feat-media"><div class="stage">
+<figure class="shot crop" style="transform:rotate(3deg)"><picture><source srcset="assets/screen-todo.webp" type="image/webp"><img src="assets/screen-todo.png" alt="画面上部のタブと、色の違うガラスのタスクカードが並ぶ画面" style="object-position:50% 17%"></picture></figure>
+</div></div>
+<div>
+<span class="num n-p">04</span>
+<h3>タブで分けて、色で見分ける</h3>
+<p style="max-width:569px">仕事・家・買い物など、タスクをタブで分けられます。<br class="pc">タブごとにガラスの色を選べ、ガラスとマットの2つの質感から選べます。</p>
+</div>
+</article>
+
+<article class="feat reveal">
+<div class="feat-media"><div class="stage">
+<figure class="shot tall" style="transform:rotate(-3deg)"><picture><source srcset="assets/screen-routine.webp" type="image/webp"><img src="assets/screen-routine.png" alt="ルーチンタブの画面。上部に連続日数と累計日数が表示され、青いガラスのカードが4枚並び、下部にSetボタンとStartボタンがある"></picture></figure>
+</div></div>
+<div>
+<span class="num n-y">05</span>
+<h3>毎日のルーチンは「セット」と「スタート」</h3>
+<p style="max-width:544px">毎日のルーチンを一度「セット」しておけば、<br class="pc">翌日は「スタート」を押すだけで、同じタスクがそろいます。<br class="pc">続けた日数も記録され、途切れそうな日には通知でお知らせします。</p>
+</div>
+</article>
+
+<article class="feat reveal">
+<div class="feat-media"><div class="stage">
+<figure class="shot cut" style="transform:rotate(1.5deg)"><picture><source srcset="assets/06_today_tab.webp" type="image/webp"><img src="assets/06_today_tab.png" width="1150" height="726" alt="「今日」タブを選んだ画面。ほかのタブから集めた「ショートカットキーを覚える」と「ゴミ出し」のカードが並んでいる"></picture></figure>
+</div></div>
+<div>
+<span class="num n-o">06</span>
+<h3>今日やることを「今日」タブに集める</h3>
+<p style="max-width:545px">どのタブのタスクも、今日やるものだけを「今日」タブに集められます。</p>
+</div>
+</article>
+
+<article class="feat reveal">
+<div class="feat-media"><div class="stage">
+<figure class="shot cut" style="transform:rotate(-1.5deg)"><picture><source srcset="assets/07_alarm.webp" type="image/webp"><img src="assets/07_alarm.png" width="1178" height="556" alt="期日「10/26」が付いた「歯医者の予約」のカードと、「タスクのリマインダー　歯医者の予約」という通知"></picture></figure>
+</div></div>
+<div>
+<span class="num n-p">07</span>
+<h3>期日のアラーム</h3>
+<p>タスクに日時を設定すると、その時刻に通知でお知らせします。</p>
+</div>
+</article>
+
+<article class="feat reveal">
+<div class="feat-media"><div class="stage">
+<div style="width:100%;max-width:480px">
+<figure class="shot cut" style="transform:rotate(1deg)"><a href="assets/08_history.png" target="_blank" rel="noopener" style="display:block"><picture><source srcset="assets/08_history.webp" type="image/webp"><img src="assets/08_history.png" width="1130" height="1525" alt="Googleドライブに保存された「PAKÍIN! 完了タスク 2026年」のファイル。ルーチンごとの実施日数・達成率・連続日数の表と、日付ごとの完了ログが並んでいる"></picture></a></figure>
+<p class="shot-cap">※画面はイメージです</p>
+</div>
+</div></div>
+<div>
+<span class="num n-y">08</span>
+<h3>割ったタスクを、1年分振り返る</h3>
+<p>割ったタスクの名前と日時は、すべて記録されます。<br class="pc">設定でオンにすると、ご自身のGoogleドライブに年ごとのファイルとして保存されます。<br class="pc">ルーチンの継続日数や達成率も自動で集計されるので、<br class="pc">1年の振り返りや、AIに読み込ませての分析にも使えます。</p>
+</div>
+</article>
+
+<article class="feat reveal">
+<div class="feat-media"><div class="stage">
+<figure class="shot cut" style="transform:rotate(-1.5deg)"><picture><source srcset="assets/09_drive_backup.webp" type="image/webp"><img src="assets/09_drive_backup.png" width="1095" height="1203" alt="設定画面の「データ連携」。最終バックアップ日時、バックアップから復元、完了履歴をGoogleドライブに保存するスイッチが並んでいる"></picture></figure>
+</div></div>
+<div>
+<span class="num n-o">09</span>
+<h3>Googleドライブに自動バックアップ</h3>
+<p>機種変更やアプリの再インストールのときも、<br class="pc">ご自身のGoogleドライブから、タスクとタブを復元できます。<br class="pc">（任意機能）</p>
+</div>
+</article>
+
+</div>
+</div>
+</section>
+
+<!-- 5. 料金（オレンジの色面＋アーチカード） -->
+<section id="price" class="f-orange onc" style="position:relative;overflow:hidden">
+<svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 44 C 120 4 240 4 360 44 S 600 84 720 44 960 4 1080 44 1320 84 1440 44 V0 H0 Z" fill="#FFF6EE"></path></svg>
+<span class="deco shard y p3 bob blink" aria-hidden="true" style="right:6%;top:18%;width:90px;height:84px;rotate:16deg"><i><b></b></i><em><u></u><u></u></em></span>
+<span class="deco shard w p2 bob" aria-hidden="true" style="left:5%;bottom:14%;width:56px;height:66px;rotate:-12deg;animation-delay:-1.4s"><i><b></b></i></span>
+<div class="wrap" style="position:relative;max-width:860px;padding-top:48px;padding-bottom:104px">
+<div class="reveal" style="text-align:center">
+<p class="eyebrow">PRICE</p>
+<h2 class="sec-h">基本は無料。<br>サブスクリプションはありません。</h2>
+</div>
+<div class="reveal" style="margin:40px auto 0;max-width:640px;padding:16px 28px;background:#fff;border-radius:999px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4px 16px;text-align:center">
+<span style="font-family:'M PLUS Rounded 1c',sans-serif;font-weight:900;color:#C7245E">無料で使える範囲</span>
+<span style="font-weight:500">タスク10件・タブ2つまで（広告表示あり）</span>
+</div>
+<div class="reveal" style="margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:28px">
+<div class="arch" style="padding:72px 28px 40px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center">
+<span class="tag">買い切り</span>
+<h3 style="font-size:22px;font-weight:900;margin-top:6px">広告非表示</h3>
+<p style="font-family:'M PLUS Rounded 1c',sans-serif;font-weight:900;font-size:64px;line-height:1.05;color:#E8356B">¥200</p>
+</div>
+<div class="arch" style="padding:72px 28px 40px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center">
+<span class="tag">買い切り</span>
+<h3 style="font-size:22px;font-weight:900;margin-top:6px">タスク・タブの上限解放</h3>
+<p style="font-family:'M PLUS Rounded 1c',sans-serif;font-weight:900;font-size:64px;line-height:1.05;color:#E8356B">¥400</p>
+</div>
+</div>
+<p class="reveal" style="margin-top:36px;text-align:center;color:#3A1A12;font-weight:700">必要なものだけ選べます。一度買えばずっと使えます。購入の復元にも対応しています。</p>
+</div>
+<svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 44 C 120 4 240 4 360 44 S 600 84 720 44 960 4 1080 44 1320 84 1440 44 V80 H0 Z" fill="#FFF6EE"></path></svg>
+</section>
+
+<!-- 6. プライバシー -->
+<section id="privacy" class="f-cream" style="padding:72px 0 104px">
+<div class="wrap">
+<div class="reveal" style="text-align:center;margin-bottom:52px">
+<p class="eyebrow">SAFE</p>
+<h2 class="sec-h">安心して<span class="hl">使えます</span></h2>
+</div>
+<div class="reveal" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,3vw,28px)">
+<div class="card" style="padding:clamp(20px,4vw,40px) clamp(8px,2.4vw,32px);display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center">
+<span class="icon-blob" style="background:#FF7FA6;width:clamp(56px,15vw,84px);height:clamp(56px,15vw,84px)"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#3A1A12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"></path><path d="M3 3l18 18"></path></svg></span>
+<h3 style="font-size:clamp(14px,3.8vw,22px);font-weight:900">アカウント不要</h3>
+<p style="font-size:clamp(12px,3.2vw,15.5px);color:#4E2E24;line-height:1.6">登録なしで、すぐ使える。</p>
+</div>
+<div class="card" style="padding:clamp(20px,4vw,40px) clamp(8px,2.4vw,32px);display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center">
+<span class="icon-blob" style="background:#FFD23F;width:clamp(56px,15vw,84px);height:clamp(56px,15vw,84px)"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#3A1A12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2.5"></rect><path d="M10 9.5l1.6 1.6L14.5 8"></path><path d="M11 18h2"></path></svg></span>
+<h3 style="font-size:clamp(14px,3.8vw,22px);font-weight:900">データは端末内</h3>
+<p style="font-size:clamp(12px,3.2vw,15.5px);color:#4E2E24;line-height:1.6">タスクは、あなたのスマホの中だけ。</p>
+</div>
+<div class="card" style="padding:clamp(20px,4vw,40px) clamp(8px,2.4vw,32px);display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center">
+<span class="icon-blob" style="background:#FF9A4D;width:clamp(56px,15vw,84px);height:clamp(56px,15vw,84px)"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#3A1A12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2.5"></rect><rect x="8.8" y="15" width="6.4" height="3" rx="1" fill="#3A1A12"></rect></svg></span>
+<h3 style="font-size:clamp(14px,3.8vw,22px);font-weight:900">広告はバナーのみ</h3>
+<p style="font-size:clamp(12px,3.2vw,15.5px);color:#4E2E24;line-height:1.6">画面をふさぐ広告は出ません。</p>
+</div>
+</div>
+<p style="margin-top:32px;text-align:center"><a href="privacy.html" style="display:inline-flex;align-items:center;min-height:44px;font-weight:700">プライバシーポリシーを読む →</a></p>
+</div>
+</section>
+
+<!-- 7. よくある質問（ピンクの色面） -->
+<section id="faq" class="f-pink onc" style="position:relative;overflow:hidden">
+<svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 44 C 120 4 240 4 360 44 S 600 84 720 44 960 4 1080 44 1320 84 1440 44 V0 H0 Z" fill="#FFF6EE"></path></svg>
+<span class="deco shard y p4 bob blink" aria-hidden="true" style="left:5%;top:22%;width:84px;height:78px;rotate:-16deg"><i><b></b></i><em><u></u><u></u></em></span>
+<div class="wrap" style="position:relative;max-width:820px;padding-top:48px;padding-bottom:96px">
+<div class="reveal" style="text-align:center;margin-bottom:44px">
+<p class="eyebrow">FAQ</p>
+<h2 class="sec-h">よくある質問</h2>
+</div>
+<div class="faq reveal">
+<details>
+<summary>無料でどこまで使えますか？</summary>
+<p>タスク10件・タブ2つまで無料で使えます。</p>
+</details>
+<details>
+<summary>機種変更したらデータはどうなりますか？</summary>
+<p>Googleドライブのバックアップをオンにしていれば、新しい端末で復元できます。</p>
+</details>
+<details>
+<summary>購入したものを別の端末でも使えますか？</summary>
+<p>同じApple IDなら、設定画面の「購入の復元」で使えます。</p>
+</details>
+<details>
+<summary>Androidでも使えますか？</summary>
+<p>現在はiPhone（iOS）のみです。</p>
+</details>
+<details>
+<summary>音や振動を消せますか？</summary>
+<p>設定画面で、それぞれオン・オフできます。</p>
+</details>
+</div>
+<p style="margin-top:28px;text-align:center"><a href="support.html" style="display:inline-flex;align-items:center;min-height:44px;font-weight:900;color:#3A1A12">サポートページへ →</a></p>
+</div>
+</section>
+
+<!-- 8. 最後のひと押し -->
+<section class="onc f-orange" style="position:relative;overflow:hidden">
+<span class="deco shard y p1 bob blink" aria-hidden="true" style="left:8%;top:22%;width:96px;height:86px;rotate:-12deg"><i><b></b></i><em><u></u><u></u></em></span>
+<span class="deco shard w p3 bob blink" aria-hidden="true" style="right:8%;top:40%;width:84px;height:78px;rotate:20deg;animation-delay:-1.6s"><i><b></b></i><em><u></u><u></u></em></span>
+<span class="deco shard p2 bob" aria-hidden="true" style="right:20%;bottom:12%;width:46px;height:54px;rotate:-20deg;animation-delay:-2.4s"><i><b></b></i></span>
+<div class="wrap" style="position:relative;display:flex;flex-direction:column;align-items:center;gap:30px;text-align:center;padding-top:clamp(72px,10vw,112px);padding-bottom:clamp(72px,10vw,112px)">
+<picture><source srcset="assets/icon.webp" type="image/webp"><img class="bob" src="assets/icon.png" alt style="width:112px;height:112px;border-radius:27px;display:block;box-shadow:0 16px 32px rgba(90,10,20,.35)"></picture>
+<h2 class="sec-h">今日のタスクを、<br>パキーンと終わらせよう。</h2>
+<button type="button" class="btn-soon" disabled>App Storeで近日公開<span class="arw"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></button>
+</div>
+</section>
+</main>
+
+<!-- フッター -->
+<footer style="background:#3A1A12;color:#FFF6EE">
+<div class="wrap" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:32px 48px;padding-top:48px;padding-bottom:24px">
+<div style="display:flex;flex-direction:column;gap:10px">
+<span style="font-family:'M PLUS Rounded 1c',sans-serif;font-weight:900;font-size:24px">PAKÍIN!</span>
+<p style="font-size:14px;color:#F3D9CC">お問い合わせ</p>
+<p style="font-size:15px;font-weight:700;user-select:all;word-break:break-all">hello.apps.support@gmail.com</p>
+</div>
+<nav aria-label="フッターメニュー" style="display:flex;flex-wrap:wrap;align-content:flex-start;gap:0 4px">
+<a href="privacy.html" style="display:inline-flex;align-items:center;min-height:44px;padding:0 12px;color:#FFF6EE;font-weight:700;font-size:15px;text-decoration:none">プライバシーポリシー</a>
+<a href="terms.html" style="display:inline-flex;align-items:center;min-height:44px;padding:0 12px;color:#FFF6EE;font-weight:700;font-size:15px;text-decoration:none">利用規約</a>
+<a href="support.html" style="display:inline-flex;align-items:center;min-height:44px;padding:0 12px;color:#FFF6EE;font-weight:700;font-size:15px;text-decoration:none">サポート</a>
+</nav>
+</div>
+<div class="wrap" style="padding-bottom:32px">
+<p style="font-size:13px;color:#F3D9CC;margin-bottom:6px">PAKÍIN! のタスクカードが割れる画面デザインは、<span style="display:inline-block;white-space:nowrap">意匠登録出願中です。</span></p>
+<p style="font-size:13px;color:#F3D9CC">© 2026 PAKÍIN!運営事務局</p>
+</div>
+</footer>
+</div>
+<script>
+/* ためしに割ってみる（3回タップで破裂）
+   ヒビ・反射面・破片の動きは、アプリのソースをそのまま移植している。
+     ヒビの出方      … src/components/GlassCrackOverlay/crackStageTable.ts（3回割れ：1回目=ヒビ画像3、2回目=反射面4〜6）
+     反射面の形      … GlassCrackOverlay/shardPolygonData.ts ＋ utils/jitterShardPoints.ts
+     タップ時の揺れ  … components/TaskCard.tsx（押しつぶし・残り1回の震え・「-1」）
+     破裂            … components/ShardBurst.tsx（空気抵抗つきの放物運動・閃光・厚み・光る辺）
+   音は鳴らさない。タップした人だけが見る動きなので、OSの「動きを減らす」設定でも破裂させる
+   （Windows の「アニメーション効果」オフでも reduce になり、割れずに消えるだけになってしまうため） */
+(function () {
+  var total = 3, taps = 0;
+  var root = document.getElementById('try');
+  if (!root) return;
+  var btn = root.querySelector('[data-action="tap"]');
+  var again = root.querySelector('[data-action="reset"]');
+  var card = btn ? btn.querySelector('.tcard') : null;
+  var refl = root.querySelector('[data-refl]');
+  var shatter = root.querySelector('[data-shatter]');
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  var raf = 0, uid = 0;
+
+  /* shardPolygonData.ts（座標系：カード幅=1000・カード高=1000）。[反射の濃さ, x,y,x,y…] */
+  var ZONES = {
+    4: [ // 左
+      [0.24, [734,86,769,186,805,266,825,316,848,378,873,333,903,406,925,461,958,533,956,286,949,161,939,113,921,96,732,86]],
+      [0.10, [690,383,647,551,668,623,690,671,711,721,752,538]],
+      [0.24, [388,86,403,146,379,208,345,303,318,393,301,476,292,526,270,403,320,256,358,148,385,83]],
+      [0.23, [760,521,785,571,764,676,738,783,715,876,673,876,714,728]],
+      [0.08, [100,858,157,756,199,643,234,866,155,876,99,861]],
+      [0.15, [265,563,288,528,300,583,277,656,257,583]]
+    ],
+    5: [ // 中
+      [0.15, [420,86,446,191,473,276,512,391,533,463,593,343,603,223,617,81,420,83]],
+      [0.15, [489,548,427,666,389,723,325,876,573,876,557,791,534,718,509,638]],
+      [0.24, [807,511,764,686,740,786,718,881,921,873,904,766,893,683,848,598]],
+      [0.22, [184,88,196,198,210,286,257,206,297,83,185,83]],
+      [0.12, [255,791,237,878,275,883,266,826]],
+      [0.15, [873,346,895,396,863,488,837,556,810,503,840,418]]
+    ],
+    6: [ // 右
+      [0.07, [66,251,90,296,124,346,160,386,183,436,135,526,91,596,61,651]],
+      [0.13, [167,378,208,303,251,226,269,393,285,526,265,566,230,508,184,436]],
+      [0.20, [419,108,403,168,394,243,368,371,301,578,292,536,303,478,319,396,345,306,379,203]],
+      [0.10, [730,106,695,166,600,336,564,416,585,456,609,491,639,546,702,333,748,138,732,98]],
+      [0.10, [620,86,607,223,597,328,655,218,692,161,718,118,732,78]],
+      [0.15, [752,148,784,226,809,276,823,313,847,378,822,446,803,503,787,571,760,511,755,528,695,373]],
+      [0.15, [424,116,455,238,485,328,513,403,527,461,494,528,455,598,424,661,384,716,323,866,276,873,261,776,277,668,303,588,339,476,369,368,395,241,405,168]],
+      [0.26, [898,398,924,463,960,541,963,673,963,751,960,801,955,826,933,763,897,678,863,616,837,561,870,468]]
+    ]
+  };
+  function pairs(flat) { var a = []; for (var i = 0; i < flat.length; i += 2) a.push([flat[i], flat[i + 1]]); return a; }
+
+  /* jitterShardPoints.ts：固定シードの揺らぎ（毎回同じ形・濃さになる） */
+  function seeded(seed) { var x = Math.sin(seed) * 10000; return x - Math.floor(x); }
+  function jitterPoints(pts, faceSeed, amt) {
+    return pts.map(function (p, i) {
+      var s = faceSeed * 100 + i;
+      return [p[0] + (seeded(s) - 0.5) * 2 * amt, p[1] + (seeded(s + 0.5) - 0.5) * 2 * amt];
+    });
+  }
+  function jitterOpacity(base, faceSeed, range) {
+    var f = 1 + (seeded(faceSeed * 7.3) - 0.5) * 2 * range;
+    return Math.max(0.05, Math.min(1, base * f));
+  }
+  function el(name, attrs) {
+    var n = document.createElementNS(SVGNS, name);
+    for (var k in attrs) n.setAttribute(k, attrs[k]);
+    return n;
+  }
+
+  /* ShardPolygonLayer.tsx：反射面（白いポリゴン）。2回目のタップで左・中・右がまとめて出る */
+  if (refl) {
+    [4, 5, 6].forEach(function (z) {
+      ZONES[z].forEach(function (face, fi) {
+        var seed = z * 100 + fi;
+        var pts = jitterPoints(pairs(face[1]), seed, 3.5);
+        refl.appendChild(el('polygon', {
+          points: pts.map(function (p) { return p[0].toFixed(1) + ',' + p[1].toFixed(1); }).join(' '),
+          fill: '#fff', 'fill-opacity': Math.min(1, jitterOpacity(face[0], seed, 0.18)).toFixed(3)
+        }));
+      });
+    });
+  }
+
+  /* colorUtils 相当。カードの横グラデーション（.tcard と同じ3色）から破片の色を取る */
+  var GRAD = [[0, [0xF0, 0x62, 0x8A]], [0.55, [0xD6, 0x34, 0x5F]], [1, [0xB8, 0x20, 0x3F]]];
+  function sampleGrad(t) {
+    for (var i = 1; i < GRAD.length; i++) {
+      if (t <= GRAD[i][0] || i === GRAD.length - 1) {
+        var a = GRAD[i - 1], b = GRAD[i], u = Math.max(0, Math.min(1, (t - a[0]) / (b[0] - a[0])));
+        return a[1].map(function (c, j) { return c + (b[1][j] - c) * u; });
+      }
+    }
+  }
+  function hex(c) { return '#' + c.map(function (v) { v = Math.round(Math.max(0, Math.min(255, v))); return (v < 16 ? '0' : '') + v.toString(16); }).join(''); }
+  function darken(c, a) { return c.map(function (v) { return v * (1 - a); }); }
+  function lighten(c, a) { return c.map(function (v) { return v + (255 - v) * a; }); }
+
+  /* ShardBurst.tsx の定数 */
+  var DUR = 0.95, PLAY_SCALE = 2, POWER = 1.3, G = 3600 * 1.5, SIDE_PAD = 6;
+
+  function pickLitEdges(pts, cx, cy) {
+    return pts.map(function (p, i) {
+      var q = pts[(i + 1) % pts.length];
+      var dx = (p[0] + q[0]) / 2 - cx, dy = (p[1] + q[1]) / 2 - cy;
+      return { seg: [p, q], facing: -dy / (Math.hypot(dx, dy) || 1) };
+    }).filter(function (e) { return e.facing > 0.3; })
+      .sort(function (a, b) { return b.facing - a.facing; })
+      .slice(0, 2).map(function (e) { return e.seg; });
+  }
+
+  function buildPiece(face, W, H, ipx, ipy) {
+    var pts = face.map(function (p) { return [p[0] / 1000 * W, p[1] / 1000 * H]; });
+    var cx = 0, cy = 0;
+    pts.forEach(function (p) { cx += p[0]; cy += p[1]; });
+    cx /= pts.length; cy /= pts.length;
+    var xs = pts.map(function (p) { return p[0]; }), ys = pts.map(function (p) { return p[1]; });
+    var minX = Math.min.apply(null, xs), maxX = Math.max.apply(null, xs);
+    var minY = Math.min.apply(null, ys), maxY = Math.max.apply(null, ys);
+
+    var dx = cx - ipx, dy = cy - ipy, dist = Math.hypot(dx, dy) || 1;
+    dx /= dist; dy /= dist;
+    var ang = Math.atan2(dy, dx) + (Math.random() - 0.5) * 0.5;
+    var maxDim = Math.max(W, H);
+    var reach = 0.7 + (dist / maxDim) * 0.8;
+    var settler = Math.random() < 0.6; // 6割は画面内に残って沈んでいく
+    var speed = (520 + Math.random() * 620) * POWER * reach * (settler ? 0.55 : 1);
+    var upBias = (60 + Math.random() * 110) * POWER * (settler ? 0.3 : 1);
+    var r = Math.random();
+    var shading = r < 0.30 ? 'highlight' : r < 0.80 ? 'normal' : 'shadow';
+    var pc = {
+      vx: Math.cos(ang) * speed * 0.55,
+      vy: Math.sin(ang) * speed - upBias,
+      av: (Math.random() - 0.5) * 1400,
+      avX: (Math.random() - 0.5) * 1100,
+      avY: (Math.random() - 0.5) * 1100,
+      opv: 0.80 + Math.random() * 0.20,
+      size: shading === 'highlight' ? 1.25 + Math.random() * 0.20 : shading === 'shadow' ? 0.70 + Math.random() * 0.15 : 0.90 + Math.random() * 0.20,
+      delay: (dist / maxDim) * 0.06,
+      drag: settler ? 5.5 + Math.random() * 2.5 : 2.2 + Math.random() * 1.4,
+      fade: settler ? 0.58 + Math.random() * 0.22 : 0.45 + Math.random() * 0.25,
+      glint: shading === 'highlight' ? 0.55 : shading === 'normal' ? 0.3 : 0.15
+    };
+    var jit = 0.9 + Math.random() * 0.2;
+
+    var base = sampleGrad(cx / W);
+    var top = hex(lighten(base, 0.15 * jit)), bottom = hex(darken(base, 0.15 * jit));
+    var stops = shading === 'highlight' ? [['0%', '#FFFFFF', 0.85], ['10%', top, 1], ['100%', bottom, 1]]
+      : shading === 'shadow' ? [['0%', top, 1], ['100%', hex(darken(base, 0.42 * jit)), 1]]
+      : [['0%', '#FFFFFF', 0.5], ['6%', top, 1], ['100%', bottom, 1]];
+
+    var len = Math.hypot(pc.vx, pc.vy) || 1, thick = 2 + Math.random() * 2;
+    var sdx = (-pc.vx / len) * thick, sdy = (-pc.vy / len) * thick;
+    var svgW = maxX - minX + SIDE_PAD * 2, svgH = maxY - minY + SIDE_PAD * 2;
+    var str = function (o, ox, oy) { return o.map(function (p) { return (p[0] + ox).toFixed(1) + ',' + (p[1] + oy).toFixed(1); }).join(' '); };
+    var id = 'shard-' + (++uid);
+
+    var svg = el('svg', { width: svgW.toFixed(1), height: svgH.toFixed(1), viewBox: [minX - SIDE_PAD, minY - SIDE_PAD, svgW, svgH].map(function (v) { return v.toFixed(1); }).join(' ') });
+    svg.style.left = (minX - SIDE_PAD) + 'px';
+    svg.style.top = (minY - SIDE_PAD) + 'px';
+    svg.style.transformOrigin = (cx - minX + SIDE_PAD) + 'px ' + (cy - minY + SIDE_PAD) + 'px';
+    var defs = el('defs', {});
+    var lg = el('linearGradient', { id: id, x1: '0%', y1: '0%', x2: '0%', y2: '100%', gradientTransform: 'rotate(' + ((Math.random() - 0.5) * 40).toFixed(1) + ', 0.5, 0.5)' });
+    stops.forEach(function (s) { lg.appendChild(el('stop', { offset: s[0], 'stop-color': s[1], 'stop-opacity': (s[2] * pc.opv).toFixed(3) })); });
+    defs.appendChild(lg);
+    svg.appendChild(defs);
+    svg.appendChild(el('polygon', { points: str(pts, sdx, sdy), fill: hex(darken(base, 0.2)), 'fill-opacity': (0.95 * pc.opv).toFixed(3) })); // 厚み（切断面）
+    svg.appendChild(el('polygon', { points: str(pts, 0, 0), fill: 'url(#' + id + ')' }));                                               // 本体
+    svg.appendChild(el('polygon', { points: str(pts, 0, 0), fill: 'none', stroke: 'rgba(0,0,0,0.12)', 'stroke-width': 0.4 }));          // 輪郭
+    pickLitEdges(pts, cx, cy).forEach(function (s) {                                                                                     // 光る辺
+      svg.appendChild(el('polyline', { points: str(s, 0, 0), fill: 'none', stroke: '#FFFFFF', 'stroke-width': 1, 'stroke-opacity': shading === 'shadow' ? 0.35 : 0.75, 'stroke-linecap': 'round' }));
+    });
+    pc.glintEl = el('polygon', { points: str(pts, 0, 0), fill: '#FFFFFF' });                                                              // 閃光
+    svg.appendChild(pc.glintEl);
+    pc.el = svg;
+    return pc;
+  }
+
+  function step(pc, t) {
+    var te = Math.max(0, t - pc.delay);
+    var p = Math.min(1, te / DUR), k = pc.drag;
+    var decay = (1 - Math.exp(-k * te)) / k;
+    var x = pc.vx * decay;
+    var y = pc.vy * decay + (G / k) * (te - decay);
+    var sc = (1 - 0.45 * p) * pc.size;
+    pc.el.style.opacity = p < pc.fade ? 1 : Math.max(0, 1 - (p - pc.fade) / (1 - pc.fade));
+    pc.el.style.transform = 'perspective(600px) translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px) rotate(' + (pc.av * te).toFixed(1) + 'deg) rotateX(' + (pc.avX * decay * 2.2).toFixed(1) + 'deg) rotateY(' + (pc.avY * decay * 2.2).toFixed(1) + 'deg) scale(' + sc.toFixed(3) + ')';
+    pc.glintEl.setAttribute('opacity', Math.max(0, pc.glint * (1 - te * 7)).toFixed(3));
+  }
+
+  function clearBurst() {
+    if (raf) cancelAnimationFrame(raf);
+    raf = 0;
+    if (shatter) shatter.textContent = '';
+  }
+
+  function burst(W, H, ipx, ipy) {
+    clearBurst();
+    if (!shatter || !window.requestAnimationFrame) return;
+    var faces = [];
+    [4, 5, 6].forEach(function (z) { ZONES[z].forEach(function (f) { faces.push(pairs(f[1])); }); });
+    var pieces = faces.map(function (f) { return buildPiece(f, W, H, ipx, ipy); });
+    pieces.forEach(function (pc) { step(pc, 0); shatter.appendChild(pc.el); });
+    var start = null, playMs = DUR * PLAY_SCALE * 1000;
+    raf = requestAnimationFrame(function frame(now) {
+      if (start === null) start = now;
+      var t = Math.min(DUR, (now - start) / playMs * DUR);
+      pieces.forEach(function (pc) { step(pc, t); });
+      if (t < DUR) raf = requestAnimationFrame(frame);
+      else { raf = 0; shatter.textContent = ''; }
+    });
+  }
+
+  /* TaskCard.tsx：タップごとの押しつぶし、残り1回での減衰する横揺れ、「-1」 */
+  function tapFeedback(x, y) {
+    if (!card || !card.animate) return;
+    var progress = taps / total;
+    var k = 0.05 + progress * 0.08, sh = progress * progress * 6;
+    card.animate([
+      { transform: 'none' },
+      { transform: 'translate(' + (-sh) + 'px,' + (2 + progress * 3) + 'px) scale(' + (1 - k) + ',' + (1 - k * 1.25) + ')', offset: 0.5 },
+      { transform: 'none' }
+    ], { duration: 60, easing: 'ease-out' });
+    if (taps === total - 1) {
+      card.animate([0, 6, -5, 3.5, -2, 1, 0].map(function (v, i) {
+        return { transform: 'translateX(' + v + 'px)', offset: [0, 40, 90, 140, 190, 240, 300][i] / 300 };
+      }), { duration: 300, delay: 60 });
+    }
+    var f = document.createElement('span');
+    f.className = 'tap-float';
+    f.setAttribute('aria-hidden', 'true');
+    f.textContent = '-1';
+    f.style.left = x + 'px';
+    f.style.top = y + 'px';
+    card.appendChild(f);
+    var a = f.animate([{ opacity: 1, marginTop: '0px' }, { opacity: 0, marginTop: '-26px' }], { duration: 480, easing: 'ease-out', fill: 'forwards' });
+    a.onfinish = function () { f.remove(); };
+  }
+
+  function q(name) { return root.querySelectorAll('[data-if="' + name + '"]'); }
+  function show(name, on) {
+    q(name).forEach(function (el) {
+      if (el instanceof SVGElement) { el.style.display = on ? '' : 'none'; }
+      else { el.hidden = !on; }
+    });
+  }
+  function render() {
+    var left = Math.max(total - taps, 0);
+    show('intact', taps < total);
+    show('broken', taps >= total);
+    show('crack1', taps >= 1);
+    show('crack2', taps >= 2);
+    root.querySelectorAll('[data-bind="left"]').forEach(function (el) { el.textContent = left; });
+    var status = taps >= total ? 'パキーン！ タスク完了。' : (taps === 0 ? 'カードをタップしてみてください' : 'あと' + left + '回で割れます');
+    root.querySelectorAll('[data-bind="status"]').forEach(function (el) { el.textContent = status; });
+    if (btn) btn.setAttribute('aria-label', 'タスクカード「企画書を提出する」。タップしてひびを入れる。あと' + left + '回で割れます');
+  }
+  if (btn) btn.addEventListener('click', function (e) {
+    if (taps >= total) return;
+    var rect = card ? card.getBoundingClientRect() : btn.getBoundingClientRect();
+    // キーボード操作（座標なし）のときはカード中央を衝撃点にする
+    var x = e.detail ? e.clientX - rect.left : rect.width / 2;
+    var y = e.detail ? e.clientY - rect.top : rect.height / 2;
+    taps += 1;
+    if (taps >= total) {
+      var W = card ? card.offsetWidth : rect.width, H = card ? card.offsetHeight : rect.height;
+      render();
+      burst(W, H, x, y);
+      if (again) setTimeout(function () { again.focus({ preventScroll: true }); }, 600);
+    } else {
+      render();
+      tapFeedback(x, y);
+    }
+  });
+  if (again) again.addEventListener('click', function () { taps = 0; clearBurst(); render(); if (btn) btn.focus({ preventScroll: true }); });
+  render();
+})();
+</script>
+</body>
+</html>
