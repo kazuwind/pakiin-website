@@ -26,7 +26,7 @@ assets/
   09_drive_backup.png   機能⑨
   *.webp                上記画像の WebP 版（同じ縦横・同じトリミング）。<picture> で WebP を優先し、png/jpg を fallback に使う
   crack_tap3.webp       「ためしに割ってみる」のヒビ画像（アプリの src/assets/textures/crack_tap3.webp を 1200×300 に縮小）
-  og-image.png          （未配置）SNS 共有用 1200×630。置いたら各ページの og:image を絶対 URL に書き換える
+  og-image.png          （未配置）SNS 共有用 1200×630。現在の og:image は icon.png（512×512）
 ```
 
 ## デザインの決まりごと（変えないこと）
@@ -74,5 +74,5 @@ assets/
 
 ## 公開前の残タスク（任意）
 
-- OGP 画像：1200×630 の画像を assets/og-image.png に置き、各ページの og:image を絶対 URL に書き換える（差し込み口とコメントは設置済み）
+- OGP 画像：1200×630 の画像を assets/og-image.png に置き、各ページの og:image / twitter:image と寸法を差し替え、twitter:card を summary_large_image に戻す
 - App Store 公開後：「App Storeで近日公開」ボタンを Apple 公式の「App Storeからダウンロード」バッジ（apple.com の公式素材）とアプリの URL に差し替え
