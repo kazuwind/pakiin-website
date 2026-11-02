@@ -115,7 +115,7 @@ img{max-width:100%}
 .frame-l span{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#FF4D8A;color:#fff;font-size:14px}
 .shot{position:relative;margin:0;width:100%;border-radius:26px;overflow:hidden;background:#fff;box-shadow:0 20px 44px rgba(220,70,60,.25)}
 .shot img{display:block;width:100%}
-.shot.crop img{aspect-ratio:5/4;object-fit:cover}
+.shot.crop img{aspect-ratio:1/1;object-fit:cover}
 .shot.tall{width:min(300px,78vw)}
 .shot.cut{max-width:480px;border-radius:22px;box-shadow:0 12px 28px rgba(150,60,40,.16)}
 .shot.cut img{height:auto}
@@ -198,8 +198,8 @@ img{max-width:100%}
 
 <div style="position:relative;width:min(280px,70vw);padding:9px;border-radius:48px;background:#3A1A12;transform:rotate(5deg);box-shadow:0 30px 60px rgba(90,10,20,.35)">
 <div style="position:relative;border-radius:39px;overflow:hidden;aspect-ratio:924/2000;background:#EBE5DD">
-<picture><source srcset="assets/hero-poster.webp" type="image/webp"><img class="poster" src="assets/hero-poster.jpg" alt="PAKÍIN!のやることタブ。ガラス質感のタスクカードが並び、下の3枚にはひびが入っている" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></picture>
-<video class="hero-video" src="assets/hero.mp4" autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg" role="img" aria-label="タスクのカードをタップするとひびが入り、パキーンと弾けて消える様子" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></video>
+<picture><source srcset="assets/hero-poster.webp" type="image/webp"><img class="poster" src="assets/hero-poster.jpg" alt="タスクのカードをタップするとひびが入り、パキーンと弾けて消える。3秒以内なら元に戻せる様子" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></picture>
+<video class="hero-video" src="assets/hero.mp4" autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg" role="img" aria-label="タスクのカードをタップするとひびが入り、パキーンと弾けて消える。3秒以内なら元に戻せる様子" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></video>
 </div>
 </div>
 <div class="wiggle" aria-hidden="true" style="position:absolute;right:max(0px,calc(50% - 240px));top:-4px;filter:drop-shadow(0 8px 10px rgba(90,10,20,.3));transform:rotate(12deg)">
@@ -224,8 +224,8 @@ img{max-width:100%}
 <div style="position:relative;max-width:520px;margin:0 auto;min-height:96px">
 
 <div data-if="intact">
-<button type="button" class="tap-btn" data-action="tap" aria-label="タスクカード「企画書を提出する」。タップしてひびを入れる。あと3回で割れます">
-<span class="tcard">企画書を提出する
+<button type="button" class="tap-btn" data-action="tap" aria-label="タスクカード「図書館に本を返す」。タップしてひびを入れる。あと3回で割れます">
+<span class="tcard">図書館に本を返す
 <img class="crack-tex" data-if="crack1" src="assets/crack_tap3.webp" alt="" hidden>
 <svg class="crack-tex" data-if="crack2" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true" data-refl></svg>
 <span class="badge" data-bind="left">3</span>
@@ -289,17 +289,17 @@ img{max-width:100%}
 <article class="feat1 reveal" style="margin-bottom:40px">
 <div class="frames" role="img" aria-label="タスクカードが割れるまでの4コマ。1 ひびなし、2 ひびが入る、3 ひびが広がる、4 パキーンと弾けて破片が飛び散る">
 <div class="frame" style="transform:rotate(-1.5deg)">
-<span class="tcard mini">企画書を提出する<span class="badge">3</span></span>
+<span class="tcard mini">図書館に本を返す<span class="badge">3</span></span>
 <span class="frame-l"><span>1</span>ひびなし</span>
 </div>
 <div class="frame" style="transform:rotate(1deg)">
-<span class="tcard mini">企画書を提出する
+<span class="tcard mini">図書館に本を返す
 <svg class="cracks" viewBox="0 0 520 96" preserveAspectRatio="none" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2.4" stroke-linecap="round"><path d="M380 44 L338 10 M380 44 L424 4 M380 44 L458 62 M380 44 L352 92 M380 44 L300 54"></path></svg>
 <span class="badge">2</span></span>
 <span class="frame-l"><span>2</span>ひび</span>
 </div>
 <div class="frame" style="transform:rotate(-1deg)">
-<span class="tcard mini">企画書を提出する
+<span class="tcard mini">図書館に本を返す
 <svg class="cracks" viewBox="0 0 520 96" preserveAspectRatio="none" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="2.4" stroke-linecap="round"><path d="M380 44 L338 10 M380 44 L424 4 M380 44 L458 62 M380 44 L352 92 M380 44 L300 54 M338 10 L296 0 M458 62 L520 74 M300 54 L222 30 M222 30 L186 0 M222 30 L160 84 M424 4 L470 22 L520 12 M300 54 L262 96 M222 30 L120 40 M120 40 L80 22"></path></svg>
 <span class="badge">1</span></span>
 <span class="frame-l"><span>3</span>ひび拡大</span>
@@ -326,7 +326,7 @@ img{max-width:100%}
 
 <article class="feat reveal">
 <div class="feat-media"><div class="stage">
-<figure class="shot cut" style="transform:rotate(1.5deg)"><picture><source srcset="assets/02_crack_count.webp" type="image/webp"><img src="assets/02_crack_count.png" width="1125" height="960" alt="ガラスのタスクカードが4枚並ぶ画面。ひびの入ったカードの右上に、割れるまでの残り回数（2、3、6）が表示されている"></picture></figure>
+<figure class="shot cut" style="transform:rotate(1.5deg)"><picture><source srcset="assets/02_crack_count.webp" type="image/webp"><img src="assets/02_crack_count.png" width="1170" height="1140" alt="5枚のタスクカード（粗大ゴミを3つ申し込む、部屋の大掃除 7つ、年賀状を5枚書く、歯医者を予約 2人分、図書館に本を返す）。ひびの入ったカードの右上に、割れるまでの残り回数が表示されている"></picture></figure>
 </div></div>
 <div>
 <span class="num n-y">02</span>
@@ -337,7 +337,7 @@ img{max-width:100%}
 
 <article class="feat reveal">
 <div class="feat-media"><div class="stage">
-<figure class="shot cut" style="transform:rotate(-1.5deg)"><picture><source srcset="assets/03_undo.webp" type="image/webp"><img src="assets/03_undo.png" width="1125" height="1140" alt="タスクカードが並ぶ画面の下に、残り時間を示すリング付きの「元に戻す」ボタンが表示されている"></picture></figure>
+<figure class="shot cut" style="transform:rotate(-1.5deg)"><picture><source srcset="assets/03_undo.webp" type="image/webp"><img src="assets/03_undo.png" width="1170" height="1050" alt="タスクカードが並ぶ画面の下に、残り時間を示すリング付きの「元に戻す」ボタンが表示されている"></picture></figure>
 </div></div>
 <div>
 <span class="num n-o">03</span>
@@ -348,7 +348,7 @@ img{max-width:100%}
 
 <article class="feat reveal">
 <div class="feat-media"><div class="stage">
-<figure class="shot crop" style="transform:rotate(3deg)"><picture><source srcset="assets/screen-todo.webp" type="image/webp"><img src="assets/screen-todo.png" alt="画面上部のタブと、色の違うガラスのタスクカードが並ぶ画面" style="object-position:50% 17%"></picture></figure>
+<figure class="shot crop" style="transform:rotate(3deg)"><picture><source srcset="assets/screen-todo.webp" type="image/webp"><img src="assets/screen-todo.png" alt="「家事」タブの画面。洗濯を2回まわす、窓拭き 4枚、布団を干す、植物に水やりの、緑のガラスのカードが並ぶ" style="object-position:50% 21%"></picture></figure>
 </div></div>
 <div>
 <span class="num n-p">04</span>
@@ -359,7 +359,7 @@ img{max-width:100%}
 
 <article class="feat reveal">
 <div class="feat-media"><div class="stage">
-<figure class="shot tall" style="transform:rotate(-3deg)"><picture><source srcset="assets/screen-routine.webp" type="image/webp"><img src="assets/screen-routine.png" alt="ルーチンタブの画面。上部に連続日数と累計日数が表示され、青いガラスのカードが4枚並び、下部にSetボタンとStartボタンがある"></picture></figure>
+<figure class="shot tall" style="transform:rotate(-3deg)"><picture><source srcset="assets/screen-routine.webp" type="image/webp"><img src="assets/screen-routine.png" alt="ルーチンタブの画面。上部に連続12日・累計15日が表示され、黄色のカードが4枚（スクワット3セット、英単語2ページ、3行日記、水1杯飲む）並び、下部にSetボタンと追加ボタンがある"></picture></figure>
 </div></div>
 <div>
 <span class="num n-y">05</span>
@@ -370,7 +370,7 @@ img{max-width:100%}
 
 <article class="feat reveal">
 <div class="feat-media"><div class="stage">
-<figure class="shot cut" style="transform:rotate(1.5deg)"><picture><source srcset="assets/06_today_tab.webp" type="image/webp"><img src="assets/06_today_tab.png" width="1150" height="726" alt="「今日」タブを選んだ画面。ほかのタブから集めた「ショートカットキーを覚える」と「ゴミ出し」のカードが並んでいる"></picture></figure>
+<figure class="shot cut" style="transform:rotate(1.5deg)"><picture><source srcset="assets/06_today_tab.webp" type="image/webp"><img src="assets/06_today_tab.png" width="1170" height="655" alt="「今日」タブを選んだ画面。ほかのタブから集めた「粗大ゴミを3つ申し込む」と「洗濯を2回まわす」のカードが並んでいる"></picture></figure>
 </div></div>
 <div>
 <span class="num n-o">06</span>
@@ -381,7 +381,7 @@ img{max-width:100%}
 
 <article class="feat reveal">
 <div class="feat-media"><div class="stage">
-<figure class="shot cut" style="transform:rotate(-1.5deg)"><picture><source srcset="assets/07_alarm.webp" type="image/webp"><img src="assets/07_alarm.png" width="1178" height="556" alt="期日「10/26」が付いた「歯医者の予約」のカードと、「タスクのリマインダー　歯医者の予約」という通知"></picture></figure>
+<figure class="shot cut" style="transform:rotate(-1.5deg)"><picture><source srcset="assets/07_alarm.webp" type="image/webp"><img src="assets/07_alarm.png" width="1170" height="536" alt="期日「11/10」が付いた「図書館に本を返す」のカードと、「タスクのリマインダー 図書館に本を返す」という通知"></picture></figure>
 </div></div>
 <div>
 <span class="num n-p">07</span>
@@ -406,7 +406,7 @@ img{max-width:100%}
 
 <article class="feat reveal">
 <div class="feat-media"><div class="stage">
-<figure class="shot cut" style="transform:rotate(-1.5deg)"><picture><source srcset="assets/09_drive_backup.webp" type="image/webp"><img src="assets/09_drive_backup.png" width="1095" height="1203" alt="設定画面の「データ連携」。最終バックアップ日時、バックアップから復元、完了履歴をGoogleドライブに保存するスイッチが並んでいる"></picture></figure>
+<figure class="shot cut" style="transform:rotate(-1.5deg)"><picture><source srcset="assets/09_drive_backup.webp" type="image/webp"><img src="assets/09_drive_backup.png" width="1170" height="1425" alt="設定画面の「Googleドライブ連携」。自動バックアップ、タスクを復元、完了履歴のバックアップのスイッチが並んでいる"></picture></figure>
 </div></div>
 <div>
 <span class="num n-o">09</span>
@@ -806,7 +806,7 @@ img{max-width:100%}
     root.querySelectorAll('[data-bind="left"]').forEach(function (el) { el.textContent = left; });
     var status = taps >= total ? 'パキーン！ タスク完了。' : (taps === 0 ? 'カードをタップしてみてください' : 'あと' + left + '回で割れます');
     root.querySelectorAll('[data-bind="status"]').forEach(function (el) { el.textContent = status; });
-    if (btn) btn.setAttribute('aria-label', 'タスクカード「企画書を提出する」。タップしてひびを入れる。あと' + left + '回で割れます');
+    if (btn) btn.setAttribute('aria-label', 'タスクカード「図書館に本を返す」。タップしてひびを入れる。あと' + left + '回で割れます');
   }
   if (btn) btn.addEventListener('click', function (e) {
     if (taps >= total) return;
