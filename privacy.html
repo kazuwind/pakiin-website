@@ -114,7 +114,7 @@ a{color:#C7245E}a:hover{color:#8E1640}
 <ul>
 <li><strong>広告配信のための情報</strong>：本サービスは広告配信事業者（Google AdMob）を通じて広告を表示する場合があります。広告配信にあたり、広告SDKが端末の広告識別子や技術的な情報を取得することがあります。本サービスは<strong>パーソナライズ広告を配信しない設定</strong>としており、利用者個人の行動履歴を横断的に追跡する処理（トラッキング）は行いません。また、広告配信にあたり、IPアドレスから推定されるおおよその地域の情報が、広告配信事業者により取得されることがあります。</li>
 <li><strong>アプリ内課金に関する情報</strong>：課金処理はApple社またはGoogle社の決済基盤を通じて行われ、購入の成立・復元に必要な技術的情報（購入トークン等）を当方アプリ側で参照することがあります。購入状態の管理には購入管理サービス（RevenueCat, Inc.）を利用しており、匿名の購入者ID・購入した商品の情報が同社のサーバーに送信されます。クレジットカード番号等の決済情報自体は当方では取得・保有しません。また、購入処理の状況を診断するための記録（購入ログ）は端末内にのみ保存され、利用者が共有操作を行った場合を除き外部に送信されません。</li>
-<li><strong>不具合（クラッシュ）の報告に関する情報</strong>：本サービスの動作中に異常終了等の不具合が発生した場合、不具合の検知・修正のため、エラーの内容、発生時の処理の記録、端末の機種・OSのバージョン、本サービスのバージョン等の技術的な情報が、不具合報告サービス（Sentry）を通じて自動的に送信されます。これらの情報に、利用者が入力したデータ（記録内容等）や、氏名・メールアドレス等の個人を特定する情報は含めません。</li>
+<li><strong>不具合（クラッシュ）の報告に関する情報</strong>：本サービスの動作中に異常終了等の不具合が発生した場合、不具合の検知・修正のため、エラーの内容（エラーの種類・発生箇所の記録）、発生時の処理の記録、端末の機種・OSのバージョン、本サービスのバージョン等の技術的な情報、および不具合の発生を端末ごとに区別するための匿名の識別子が、不具合報告サービス（Google LLCのFirebase Crashlytics）を通じて自動的に送信されます。これらの情報に、利用者が入力したデータ（タスク名・記録内容等）や、氏名・メールアドレス等の個人を特定する情報は含めません。</li>
 <li><strong>通知に関する情報</strong>：リマインダー等の通知は、端末内で予約・表示する仕組み（ローカル通知）を利用しており、通知の内容や予約日時が当方のサーバーに送信されることはありません。</li>
 <li><strong>完了履歴</strong>：利用者が完了したタスクの名前、完了日時、およびタブの名前を、振り返りのための記録として端末内に保存します。これらの情報が当方のサーバーに送信されることはありません。</li>
 </ul>
@@ -154,12 +154,12 @@ a{color:#C7245E}a:hover{color:#8E1640}
 <li><strong>Google AdMob</strong>（広告配信）：<a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
 <li><strong>Firebase Analytics</strong>（利用状況分析機能が搭載されている場合）：<a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
 <li><strong>RevenueCat</strong>（購入状態の管理）：<a href="https://www.revenuecat.com/privacy">https://www.revenuecat.com/privacy</a></li>
-<li><strong>Sentry</strong>（不具合の報告）：<a href="https://sentry.io/privacy/">https://sentry.io/privacy/</a></li>
+<li><strong>Firebase Crashlytics</strong>（不具合の報告）：<a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
 <li><strong>Google ログイン / Google ドライブ</strong>（利用者が有効にした場合のバックアップおよび完了履歴の保存）：<a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></li>
 <li><strong>Apple App Store / Google Play</strong>（決済処理）：各プラットフォームのプライバシーポリシーによります</li>
 </ul>
 <h2 id="p5">5. 外国にある第三者への情報の提供（越境データ移転）について</h2>
-<p>上記4に記載のGoogle AdMob、Firebase Analytics、Google ログインおよびGoogle ドライブはGoogle LLC（アメリカ合衆国）が、RevenueCatはRevenueCat, Inc.（アメリカ合衆国）が、SentryはFunctional Software, Inc.（アメリカ合衆国）が提供するサービスであり、取得される情報はアメリカ合衆国その他の国にあるサーバーで処理される場合があります。当該国における個人情報保護に関する制度は日本国と異なる場合がありますが、各社は自社のプライバシーポリシーおよび適用される法令に従って情報を管理するものとされています。詳細は上記4に記載の各リンク先をご確認ください。</p>
+<p>上記4に記載のGoogle AdMob、Firebase Analytics、Firebase Crashlytics、Google ログインおよびGoogle ドライブはGoogle LLC（アメリカ合衆国）が、RevenueCatはRevenueCat, Inc.（アメリカ合衆国）が提供するサービスであり、取得される情報はアメリカ合衆国その他の国にあるサーバーで処理される場合があります。当該国における個人情報保護に関する制度は日本国と異なる場合がありますが、各社は自社のプライバシーポリシーおよび適用される法令に従って情報を管理するものとされています。詳細は上記4に記載の各リンク先をご確認ください。</p>
 <h2 id="p6">6. 包括的同意の範囲について</h2>
 <p>利用者は、本ポリシーに同意することにより、上記2-3に定める目的の範囲内で当方が今後導入する個々のツールまたは外部サービスについて、その都度の個別の同意取得なく、包括的に同意したものとします。ただし、この包括的同意は、本ポリシーに明記された目的および情報の種類の範囲内に限られます。当方は、この範囲を超えて情報を取得または利用する場合には、あらためて本ポリシーを改定し、利用者に周知したうえで対応します。</p>
 <h2 id="p7">7. トラッキングについて</h2>
