@@ -26,6 +26,8 @@ assets/
   09_drive_backup.png   機能⑨
   *.webp                上記画像の WebP 版（同じ縦横・同じトリミング）。<picture> で WebP を優先し、png/jpg を fallback に使う
   crack_tap3.webp       「ためしに割ってみる」のヒビ画像（アプリの src/assets/textures/crack_tap3.webp を 1200×300 に縮小）
+  app-store-badge-ja.svg  Apple 公式の「App Storeからダウンロード」バッジ（日本語。Apple の素材をそのまま使う）
+  app-store-qr.svg      App Store のページ（上記URL）を指す QR コード（誤り訂正M、余白4モジュール。ローカルで生成）
   og-image.png          （未配置）SNS 共有用 1200×630。現在の og:image は icon.png（512×512）
 ```
 
@@ -35,7 +37,8 @@ assets/
 - 書体：見出し M PLUS Rounded 1c、本文 Noto Sans JP（Google Fonts）
 - 装飾：目のあるガラスの破片キャラ、波形の区切り、アーチ型の料金カード、白いピルボタン
 - 文言：規約・ポリシーの目次・本文・制定日と全ページの問い合わせ先は、アプリのリポジトリの `npm run build:legal` で生成する。ここでは手編集しない。運営者表記はフッターが「© 2026 Bootstrapp Works. All rights reserved.」と意匠登録出願中の1行、規約・ポリシー本文が「Bootstrapp Works」（フッターは生成対象外のため手編集）
-- App Store ボタンは「App Storeで近日公開」の仮表示（disabled のボタン）。Apple 公式バッジは自作・模写しない
+- App Store へは Apple 公式バッジ（assets/app-store-badge-ja.svg）でリンクする（https://apps.apple.com/jp/app/id6811900348 、配信は日本のみ）。バッジは自作・模写・改変しない。PC 幅（768px 以上）だけ、バッジの横に QR コード（assets/app-store-qr.svg）を出す
+- 全ページの head にスマートアプリバナー（`<meta name="apple-itunes-app" content="app-id=6811900348">`）。iPhone の Safari に App Store のバナーが出る
 
 ## 動きについて
 
@@ -75,4 +78,3 @@ assets/
 ## 公開前の残タスク（任意）
 
 - OGP 画像：1200×630 の画像を assets/og-image.png に置き、各ページの og:image / twitter:image と寸法を差し替え、twitter:card を summary_large_image に戻す
-- App Store 公開後：「App Storeで近日公開」ボタンを Apple 公式の「App Storeからダウンロード」バッジ（apple.com の公式素材）とアプリの URL に差し替え
